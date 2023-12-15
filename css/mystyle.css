@@ -1,0 +1,36 @@
+body{
+    margin: 0 10% 0 10%;
+    background-color: #0f0f0f;
+    font-family: Arial, Helvetica, sans-serif;
+    color: whitesmoke;
+}
+
+.header {
+    font-weight: bold;
+    font-size: 1.2vw;
+    text-align: center;
+    margin:0 10% 0 10%;
+    /*border-bottom: solid ;*/border: 1px yellow solid;
+}
+
+
+
+.movie-list-container {
+    display: flex;
+    justify-content: center;
+    border: 1px purple solid;
+}
+
+.movie {
+    border: rgba(245,245,245,0.1) solid;
+}
+
+.title {
+    font-size:1vw;
+}
+
+
+
+.add-movie{
+    border: 1px cyan solid;
+}
