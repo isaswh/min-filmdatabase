@@ -9,30 +9,38 @@ body{
     font-weight: bold;
     font-size: 1.2vw;
     text-align: center;
-    margin:0 10% 0 10%;
-    /*border-bottom: solid ;*/border: 1px yellow solid;
+    margin:0 0% 0 0%;
+    border-bottom: solid 2px;;
 }
-
 
 
 .movie-list-container {
-    display: flex;
-    justify-content: center;
-    border: 1px purple solid;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 60vh;
+    overflow-y: scroll;
 }
 
 .movie {
-    border: rgba(245,245,245,0.1) solid;
+    margin: 10px;
+    padding: 6px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 91, 0.4);
+    border: 1px white solid;
+    border-radius: 6px;
 }
 
 .title {
-    font-size:1vw;
+    font-size:calc(1.1rem + 0.1vh);
+    overflow-wrap: wrap;
 }
-
 
 
 .add-movie{
-    border: 1px cyan solid;
+    border: 1px rgb(0, 0, 91) solid;
+    border-radius: 4px;
+    padding: 6px;
 }
-
-/*just making sure*/

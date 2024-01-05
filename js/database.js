@@ -13,19 +13,41 @@ const db = firebaseApp.firestore();
 function addMovie() {
     // Legger til info i collection som heiter "movies"
     db.collection("Movies").doc().set({
-        title: "test",
-        year: "2003"
-    })
+        title: document.getElementById("newMovieTitle").value,
+        year: document.getElementById("newMovieYear").value,
+        genre: document.getElementById("newMovieGenre").value.split(',').map(s => s.trim()) // Split genres by commas and trim spaces
+    });
+    document.getElementById("newMovieTitle").value = "";
+    document.getElementById("newMovieYear").value = "";
+    document.getElementById("newMovieGenre").value = "";
 }
 
 function getMovies() {
-    let messagesText = "";
+    let moviesHTML = "";
 
     db.collection("Movies").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            messagesText += "<div class='movie'><p class='title'>" + doc.data().title + "</p><p class='year'>" + doc.data().year + "</p></div>";
+            const title = doc.data().title;
+            const year = doc.data().year;
+            const genres = doc.data().genre.join(', ');
+
+            moviesHTML += `<div class='movie'>
+                <p class='title'>${title}</p>
+                <p class='year'>${year}</p>
+                <p class= 'genre'>${genres}</p>
+                <button class='delete-btn' onclick='deleteMovie("${doc.id}")'>Delete</button>
+            </div>`;
         });
-        document.getElementById("movies").innerHTML = messagesText;
+        document.getElementById("movies").innerHTML = moviesHTML;
     });
 }
 getMovies();
+
+function deleteMovie(movieId) {
+    db.collection("Movies").doc(movieId).delete().then(() => {
+        console.log("Movie deleted.");
+        getMovies();
+    }).catch((error) => {
+        console.error("Error deleting movie: ", error);
+    });
+}

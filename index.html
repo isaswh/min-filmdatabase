@@ -14,7 +14,14 @@
     <div id="movies"></div>
 </div>
 <div class="add-movie">
-  <button onclick="addMovie()">Legg til</button>
+    <p class="tekst-over-greien">Tittel
+    <input id="newMovieTitle" type="text" placeholder="Film..."></p>
+    <p class="tekst-over-greien">Årstall
+    <input id="newMovieYear" type="number" placeholder="2000..."></p>
+    <p class="tekst-over-greien">Sjangere (separer med komma)
+    <input id="newMovieGenre" type="text" placeholder="sjanger,sjanger..."></p>
+    
+    <button onclick="addMovie()">Legg til</button>
 </div>
 
     <script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js"></script>
@@ -24,5 +31,3 @@
     <script src="js/database.js"></script>
 </body>
 </html>
-
-<!-- testing testing -->
